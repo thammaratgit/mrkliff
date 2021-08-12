@@ -63,10 +63,17 @@
     }
 
     async function getFriendship() {
+      const friend = await liff.getFriendship();
+      document.getElementById("friendship").append(friend.friendFlag);
+      if (!friend.friendFlag) {
+        // if () {
+
+        // }
+      }
     }
 
     async function sendMsg() {
-      if (liff.getContext().type !== "none") {
+      if (liff.getContext().type !== "none" && liff.getContext().type !== "external") {
         await liff.sendMessages([
           {
             "type":"sticker",
@@ -115,7 +122,7 @@
       getEnvironment()
       getUserProfile()
       getContext()
-      // getFriendship()
+      getFriendship()
       // createUniversalLink()
     }
     main()
